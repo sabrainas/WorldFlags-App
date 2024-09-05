@@ -16,7 +16,7 @@ import com.google.android.material.shadow.ShadowRenderer;
 
 public class GameOver extends AppCompatActivity {
 
-    private TextView txtPoints, txtPersonalBest;
+    private TextView txtPoints, txtPersonalBest, nomeTextView;
 
     SharedPreferences sharedPreferences;
 
@@ -27,6 +27,7 @@ public class GameOver extends AppCompatActivity {
         setContentView(R.layout.activity_game_over);
 
         int points = getIntent().getIntExtra("pontos", 0);
+        String nome = getIntent().getStringExtra("Nome");
 
         txtPoints = findViewById(R.id.txtPoints);
         txtPersonalBest = findViewById(R.id.txtPersonalBest);
@@ -44,6 +45,9 @@ public class GameOver extends AppCompatActivity {
         }
 
         txtPersonalBest.setText(String.valueOf(pointsSP));
+
+        TextView nomeTextView = findViewById(R.id.nomeTextView);
+        nomeTextView.setText(nome);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

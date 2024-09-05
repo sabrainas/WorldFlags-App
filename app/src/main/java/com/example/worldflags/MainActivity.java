@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame(View view) {
         Intent intent = new Intent(MainActivity.this, StartGame.class);
+        String nome = edtTxtName.getText().toString();
+        intent.putExtra("Nome", nome);
         startActivity(intent);
         finish();
     }

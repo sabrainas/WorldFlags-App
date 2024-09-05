@@ -126,6 +126,9 @@ public class StartGame extends AppCompatActivity {
             Intent intent = new Intent(StartGame.this, GameOver.class);
             intent.putExtra("pontos", points);
 
+            String nome = getIntent().getStringExtra("Nome");
+            intent.putExtra("Nome", nome);
+
             startActivity(intent);
             finish();
         } else {
